@@ -4,10 +4,8 @@ import time
 #https://docs.python.org/3.0/library/urllib.request.html
 #"the HTTP request will be a POST instead of a GET when the data parameter is provided"
 
-SERVER_ADDR = 'http://10.1.130.6:12345/'
-
 #instantiaion
-the_server = client.Server(SERVER_ADDR)
+the_server = client.Server()
 
 print('Welcome, to the chat client reciever!')
 

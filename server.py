@@ -61,5 +61,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(response)
 
+print('Serving on port', PORT)
 with socketserver.TCPServer(('',PORT), Handler) as httpd:
     httpd.serve_forever()

@@ -4,16 +4,18 @@
 
 import os, urllib.request, os, json
 
+SERVER_ADDR = 'http://10.1.128.195:12345/'
+
 class Message():
     def __init__(self, user, content):
         self.user = user
         self.content = content
 
-#the client uses this class to communicate with/to the server
+#the client uses this class to communicate with the server
 class Server():
-    def __init__(self, addr):
-        self.addr = addr
-        os.environ['NO_PROXY'] = addr
+    def __init__(self):
+        self.addr = SERVER_ADDR
+        os.environ['NO_PROXY'] = self.addr
     def get_messages(self):
         response = urllib.request.urlopen(self.addr).read() #GET (no data sent, just that it is a GET)
         #aggregation as we are creating new Messgae instances that are not owned by this class so won't die
@@ -35,4 +37,4 @@ class Server():
 if __name__ == '__main__':
 	import subprocess
 	subprocess.Popen(['python', 'sender.py'], creationflags=subprocess.CREATE_NEW_CONSOLE)
-	subprocess.Popen(['python', 'reciever.py'], creationflags=subprocess.CREATE_NEW_CONSOLE)
+	subprocess.Popen(['python', 'receiver.py'], creationflags=subprocess.CREATE_NEW_CONSOLE)
