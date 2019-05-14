@@ -1,7 +1,7 @@
 import client
 import time
 
-SERVER_ADDR = 'http://10.1.129.49:12345/'
+SERVER_ADDR = 'http://10.1.130.6:12345/'
 
 #instantiaion
 the_server = client.Server(SERVER_ADDR)
